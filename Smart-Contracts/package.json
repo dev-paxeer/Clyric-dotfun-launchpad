@@ -1,0 +1,43 @@
+{
+  "name": "smart-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts",
+  "main": "",
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "deploy:localhost": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:all:paxeer": "hardhat run scripts/deploy-all-coins.js --network paxeer",
+    "deploy:all:localhost": "hardhat run scripts/deploy-all-coins.js --network localhost",
+    "deploy:98:paxeer": "hardhat run scripts/deploy-98-coins.js --network paxeer",
+    "deploy:98:localhost": "hardhat run scripts/deploy-98-coins.js --network localhost",
+    "verify:deployments": "hardhat run scripts/verify-deployments.js",
+    "clean:generated": "rm -rf contracts/generated && rm -f deployment-summary.json"
+  },
+  "devDependencies": {
+    "@alchemy/mcp-server": "^0.1.8",
+    "@modelcontextprotocol/server-memory": "^2025.8.4",
+    "@modelcontextprotocol/server-sequential-thinking": "^2025.7.1",
+    "@moralisweb3/api-mcp-server": "^1.8.2",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.6"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0",
+    "@openzeppelin/contracts-upgradeable": "^5.4.0",
+    "@openzeppelin/hardhat-upgrades": "^3.9.1",
+    "axios": "^1.11.0",
+    "cassandra-driver": "^4.8.0",
+    "cors": "^2.8.5",
+    "ethers": "^6.15.0",
+    "express": "^5.1.0",
+    "keccak256": "^1.0.6",
+    "mysql2": "^3.14.3",
+    "package.json": "link:@openzeppelin/contracts-upgradeable/package.json",
+    "pg": "^8.16.3"
+  }
+}

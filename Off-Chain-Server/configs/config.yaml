@@ -1,0 +1,25 @@
+# Off-chain Indexer configuration
+# Rename to config.yaml and adjust values or override with env vars
+# Env overrides:
+# - PAXEER_RPC_WS, PAXEER_RPC_HTTP
+# - PAXEER_FACTORY
+# - PAXEER_START_BLOCK
+# - PAXEER_DB_DSN
+# - PAXEER_CONFIRMATIONS
+# - PAXEER_BATCH_SIZE
+
+rpc:
+  ws: "wss://v1-api.paxeer.app/ws"     # WebSocket endpoint for live subscriptions
+  http: "https://v1-api.paxeer.app/rpc"    # HTTP endpoint for backfill queries
+
+contracts:
+  factory: "0xFB4E790C9f047c96a53eFf08b9F58E96E6730c6a" # LaunchpadFactory address
+  usdc: "0x61Be934234717c57585d5f558360aFA59F8adB56"    # USDC address (18d) (optional)
+
+indexer:
+  startBlock: 1          # First block to backfill (0 = genesis)
+  confirmations: 2       # Reorg safety margin for new blocks
+  batchSize: 5000        # Backfill log scan batch size
+
+postgres:
+  dsn: "postgres://user:password@localhost:5432/paxeer?sslmode=disable"

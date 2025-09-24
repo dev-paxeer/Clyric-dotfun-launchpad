@@ -1,0 +1,98 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source code
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sol text eol=lf
+*.go text eol=lf
+*.sql text eol=lf
+
+# Config files
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+*.conf text eol=lf
+.env* text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+# Documentation
+*.txt text eol=lf
+*.rtf text eol=lf
+LICENSE text eol=lf
+README* text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+*.fish text eol=lf
+
+# Windows scripts
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.webp binary
+*.pdf binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+*.rar binary
+
+# Font files
+*.woff binary
+*.woff2 binary
+*.eot binary
+*.ttf binary
+*.otf binary
+
+# Audio/Video
+*.mp3 binary
+*.mp4 binary
+*.avi binary
+*.mov binary
+*.wav binary
+
+# Archives
+*.tar.gz binary
+*.tgz binary
+
+# Solidity artifacts (generated)
+Smart-Contracts/artifacts/** linguist-generated=true
+Smart-Contracts/cache/** linguist-generated=true
+Smart-Contracts/typechain-types/** linguist-generated=true
+
+# Go binaries
+Off-Chain-Server/bin/** linguist-generated=true
+
+# Frontend build outputs
+Frontend/build/** linguist-generated=true
+Frontend/dist/** linguist-generated=true
+Frontend/.next/** linguist-generated=true
+
+# Package lock files
+package-lock.json binary
+yarn.lock binary
+pnpm-lock.yaml binary
+
+# Linguist overrides for proper language detection
+*.sol linguist-language=Solidity
+*.go linguist-language=Go
+*.js linguist-language=JavaScript
+*.ts linguist-language=TypeScript

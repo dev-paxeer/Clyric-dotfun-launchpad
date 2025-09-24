@@ -1,0 +1,56 @@
+[
+  { "anonymous": false, "inputs": [
+      { "indexed": true,  "internalType": "address", "name": "sender", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "amountIn", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "amountOut", "type": "uint256" },
+      { "indexed": false, "internalType": "bool",    "name": "usdcToToken", "type": "bool" },
+      { "indexed": true,  "internalType": "address", "name": "to", "type": "address" }
+    ],
+    "name": "Swap",
+    "type": "event"
+  },
+  { "anonymous": false, "inputs": [
+      { "indexed": true,  "internalType": "address", "name": "provider", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "amountUSDC", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "amountToken", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "lpMinted", "type": "uint256" }
+    ],
+    "name": "AddLiquidity",
+    "type": "event"
+  },
+  { "anonymous": false, "inputs": [
+      { "indexed": true,  "internalType": "address", "name": "provider", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "lpBurned", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "amountUSDC", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "amountToken", "type": "uint256" }
+    ],
+    "name": "RemoveLiquidity",
+    "type": "event"
+  },
+  { "anonymous": false, "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "amountUSDC", "type": "uint256" }
+    ],
+    "name": "CollectCreatorFees",
+    "type": "event"
+  },
+  { "anonymous": false, "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "InitialTokenSeeded",
+    "type": "event"
+  },
+  { "anonymous": false, "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "reserveUSDC", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "reserveToken", "type": "uint256" }
+    ],
+    "name": "Sync",
+    "type": "event"
+  },
+  { "anonymous": false, "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "priceX18", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "floorX18", "type": "uint256" }
+    ],
+    "name": "PriceUpdate",
+    "type": "event"
+  }
+]

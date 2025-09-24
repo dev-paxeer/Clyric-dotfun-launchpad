@@ -1,0 +1,11 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "priceCumulative", "type": "uint256" },
+      { "indexed": false, "internalType": "uint32",   "name": "timestamp",        "type": "uint32" }
+    ],
+    "name": "OracleUpdate",
+    "type": "event"
+  }
+]

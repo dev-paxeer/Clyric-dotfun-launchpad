@@ -1,0 +1,76 @@
+{
+  "name": "paxeer-launchpad",
+  "version": "1.0.0",
+  "description": "Decentralized token launch platform with single-sided AMM pools",
+  "private": true,
+  "workspaces": [
+    "Smart-Contracts",
+    "Frontend"
+  ],
+  "scripts": {
+    "install:all": "pnpm install --recursive",
+    "build:contracts": "cd Smart-Contracts && pnpm hardhat compile",
+    "build:server": "cd Off-Chain-Server && go build -o bin/indexer ./cmd/indexer && go build -o bin/api ./cmd/api",
+    "build:all": "pnpm build:contracts && pnpm build:server",
+    "test:contracts": "cd Smart-Contracts && pnpm hardhat test",
+    "test:server": "cd Off-Chain-Server && go test ./...",
+    "test:all": "pnpm test:contracts && pnpm test:server",
+    "deploy:contracts": "cd Smart-Contracts && pnpm hardhat run scripts/deploy.js --network paxeer-network",
+    "export:abis": "cd Smart-Contracts && pnpm hardhat run scripts/export_abis.js",
+    "start:indexer": "cd Off-Chain-Server && ./bin/indexer -config configs/config.yaml",
+    "start:api": "cd Off-Chain-Server && PAXEER_API_ADDR=:8080 ./bin/api -config configs/config.yaml",
+    "docker:build": "docker build -t paxeer-launchpad .",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "dev:setup": "pnpm install:all && pnpm build:contracts && pnpm export:abis && pnpm build:server",
+    "dev:start": "concurrently \"pnpm start:indexer\" \"pnpm start:api\"",
+    "lint:contracts": "cd Smart-Contracts && pnpm hardhat check",
+    "lint:server": "cd Off-Chain-Server && golangci-lint run",
+    "format:contracts": "cd Smart-Contracts && pnpm prettier --write .",
+    "format:server": "cd Off-Chain-Server && gofmt -w .",
+    "clean": "pnpm clean:contracts && pnpm clean:server",
+    "clean:contracts": "cd Smart-Contracts && rm -rf cache artifacts typechain-types abi-dist",
+    "clean:server": "cd Off-Chain-Server && rm -rf bin logs/*.log",
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.1",
+  "keywords": [
+    "defi",
+    "amm",
+    "token-launch",
+    "ethereum",
+    "solidity",
+    "go",
+    "blockchain",
+    "dex"
+  ],
+  "author": "Paxeer Labs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paxeer/launchpad.git"
+  },
+  "bugs": {
+    "url": "https://github.com/paxeer/launchpad/issues"
+  },
+  "homepage": "https://paxeer.com",
+  "lint-staged": {
+    "Smart-Contracts/**/*.{js,ts,sol}": [
+      "prettier --write"
+    ],
+    "**/*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  }
+}
