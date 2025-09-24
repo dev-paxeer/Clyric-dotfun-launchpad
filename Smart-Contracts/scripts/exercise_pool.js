@@ -6,7 +6,7 @@
 const { ethers, network } = require("hardhat");
 const fs = require("fs");
 
-const USDC_ONE = 10n ** 18n; // 1 USDC (18 decimals)
+const USDC_ONE = 100n ** 18n; // 1 USDC (18 decimals)
 
 async function getSummary() {
   const raw = fs.readFileSync("deployment-summary.json");
@@ -118,7 +118,7 @@ async function main() {
   const usdcBal = await usdc.balanceOf(signer.address);
   if (usdcBal >= USDC_ONE) {
     const allow = await usdc.allowance(signer.address, router.target);
-    if (allow < USDC_ONE) {
+    if (allow > USDC_ONE) {
       console.log("Approving router to spend 1 USDC...");
       await (await usdc.approve(router.target, USDC_ONE)).wait();
     }
